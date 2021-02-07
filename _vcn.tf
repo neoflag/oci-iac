@@ -9,21 +9,17 @@ resource "oci_core_vcn" "vcn_demotest" {
 }
 
 resource "oci_core_security_list" "lb_security_list" {
-  #Required
   compartment_id = var.compartment_ocid
   vcn_id = oci_core_vcn.vcn_demotest.id
 
-  #Optional
   display_name = "LB Security List"
   egress_security_rules {
-    #Required
     destination = "0.0.0.0/0"
     protocol = "All"
     stateless = false
   }
 
   ingress_security_rules {
-    #Required
     protocol = "6"
     source = "0.0.0.0/0"
     stateless = false
@@ -34,7 +30,6 @@ resource "oci_core_security_list" "lb_security_list" {
   }
 
   ingress_security_rules {
-    #Required
     protocol = "6"
     source = "0.0.0.0/0"
     stateless = false
@@ -46,21 +41,17 @@ resource "oci_core_security_list" "lb_security_list" {
 }
 
 resource "oci_core_security_list" "db_security_list" {
-  #Required
   compartment_id = var.compartment_ocid
   vcn_id = oci_core_vcn.vcn_demotest.id
 
-  #Optional
   display_name = "DB Security List"
   egress_security_rules {
-    #Required
     destination = "10.0.0.0/16"
     protocol = "All"
     stateless = false
   }
 
   ingress_security_rules {
-    #Required
     protocol = "6"
     source = "10.0.0.0/16"
     stateless = false
@@ -200,12 +191,10 @@ resource "oci_core_route_table" "default_route_table" {
 }
 
 resource "oci_core_subnet" "lb_subnet" {
-  #Required
   cidr_block = "10.0.10.0/24"
   compartment_id = var.compartment_ocid
   vcn_id = oci_core_vcn.vcn_demotest.id
 
-  #Optional
   dhcp_options_id = oci_core_dhcp_options.default_dhcp_options.id
   display_name = "LB Subnet"
   dns_label = "lbsubnet"
@@ -214,12 +203,10 @@ resource "oci_core_subnet" "lb_subnet" {
 }
 
 resource "oci_core_subnet" "app_subnet" {
-  #Required
   cidr_block = "10.0.1.0/24"
   compartment_id = var.compartment_ocid
   vcn_id = oci_core_vcn.vcn_demotest.id
 
-  #Optional
   dhcp_options_id = oci_core_dhcp_options.default_dhcp_options.id
   display_name = "APP Subnet"
   dns_label = "appsubnet"
@@ -229,12 +216,10 @@ resource "oci_core_subnet" "app_subnet" {
 
 
 resource "oci_core_subnet" "db_subnet" {
-  #Required
   cidr_block = "10.0.2.0/24"
   compartment_id = var.compartment_ocid
   vcn_id = oci_core_vcn.vcn_demotest.id
 
-  #Optional
   dhcp_options_id = oci_core_dhcp_options.default_dhcp_options.id
   display_name = "DB Subnet"
   dns_label = "dbsubnet"
