@@ -214,7 +214,6 @@ resource "oci_core_subnet" "app_subnet" {
   security_list_ids = [oci_core_security_list.app_security_list.id]
 }
 
-
 resource "oci_core_subnet" "db_subnet" {
   cidr_block = "10.0.2.0/24"
   compartment_id = var.compartment_ocid

@@ -1,5 +1,4 @@
 resource "oci_file_storage_file_system" "wordpress_file_system" {
-
     availability_domain = var.availability_domain
     compartment_id = var.compartment_ocid
     display_name = "FS-wordpress"

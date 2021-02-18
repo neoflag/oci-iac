@@ -5,7 +5,6 @@ resource "oci_load_balancer_load_balancer" "demotest_load_balancer" {
   subnet_ids = [oci_core_subnet.lb_subnet.id]
 }
 
-
 resource "oci_load_balancer_certificate" "demotest_certificate" {
   certificate_name = "demotest_certificate"
   load_balancer_id = oci_load_balancer_load_balancer.demotest_load_balancer.id
