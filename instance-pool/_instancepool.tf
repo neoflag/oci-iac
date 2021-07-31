@@ -4,7 +4,7 @@ variable "availability_domain" {}
 resource "oci_core_instance_pool" "demotest_instance_pool" {
   compartment_id = var.compartment_ocid
   instance_configuration_id = "ocid1.instanceconfiguration.oc1.ap-seoul-1.aaaaaaaadvpk457opu4r56dulzqfrrltugsfi67wzveskp6n3ck7vrzwuysq"
-  d
+  
   placement_configurations {
     availability_domain = var.availability_domain
     primary_subnet_id = "ocid1.subnet.oc1.ap-seoul-1.aaaaaaaasftmvug6hm2mxnvjn3r4scwidury3abakqbls7e2ett6e663ornq"
